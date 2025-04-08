@@ -7,12 +7,12 @@ RUN npm install -g npm@11.2.0
 
 # Copy package files and install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps  # --force
 
 # Copy the rest of the app
 COPY . .
 
-# Set environment and expose port
+# Set environmen t and expose port
 EXPOSE 3000
 ENV HOST=0.0.0.0
 
